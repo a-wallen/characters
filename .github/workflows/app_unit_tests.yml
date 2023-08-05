@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: characters_engine
+        working-directory: characters_app
 
     steps:
       - name: Checkout code
