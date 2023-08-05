@@ -1,4 +1,4 @@
-name: Flutter Unit Tests
+name: Characters Engine Unit Tests
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Run Flutter Unit Tests
+    name: Run Characters Engine Unit Tests
     runs-on: ubuntu-latest
     defaults:
       run:
