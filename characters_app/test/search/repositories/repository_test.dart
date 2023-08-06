@@ -1,7 +1,7 @@
 import 'package:characters_app/search/domain/repositories/search_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'repositories/mock_search_repository.dart';
+import 'mock_search_repository.dart';
 
 void main() {
   late SearchRepository repository;
