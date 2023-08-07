@@ -79,21 +79,16 @@ android {
     }
 
     flavorDimensions "default"
-    productFlavors { 
-        production {
+    productFlavors {
+        the_wire {
             dimension "default"
-            applicationIdSuffix ""
-            manifestPlaceholders = [appName: "Characters App"]
+            applicationId "com.surge.the_wire_characters_app"
+            manifestPlaceholders = [appName: "The Wire Characters App"]
         }
-        staging {
+        the_simpsons {
             dimension "default"
-            applicationIdSuffix ".stg"
-            manifestPlaceholders = [appName: "[STG] Characters App"]
-        }
-        development {
-            dimension "default"
-            applicationIdSuffix ".dev"
-            manifestPlaceholders = [appName: "[DEV] Characters App"]
+            applicationIdSuffix "com.surge.the_simpsons_characters_app"
+            manifestPlaceholders = [appName: "The Simpsons Characters App"]
         }
     }
 
