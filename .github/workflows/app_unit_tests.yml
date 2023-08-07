@@ -1,13 +1,16 @@
-name: Flutter Unit Tests
+name: Characters App Unit Tests
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
-    name: Run Flutter Unit Tests
+    name: Run Characters App Unit Tests
     runs-on: ubuntu-latest
     defaults:
       run:
