@@ -2,7 +2,7 @@ part of 'search_bloc.dart';
 
 /// The state for the [SearchBloc].
 @freezed
-class SearchState {
+class SearchState with _$SearchState {
   /// The initial state of the [SearchBloc].
   const factory SearchState.initial() = _Initial;
 

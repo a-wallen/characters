@@ -6,9 +6,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:meta/meta.dart';
 
+part 'search_bloc.freezed.dart';
 part 'search_event.dart';
 part 'search_state.dart';
-part 'search_bloc.freezed.dart';
 
 /// Business logic component for searching characters
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
@@ -20,13 +20,22 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   })  : _searchRepository = searchRepository,
         super(const SearchState.initial()) {
     on<SearchEvent>(dispatch);
+    add(const SearchEvent.initialize());
   }
 
   final SearchRepository _searchRepository;
 
   /// Dispatches the freezed event to the correct handler
   Future<void> dispatch(SearchEvent event, Emitter<SearchState> emit) async =>
-      await event.when(search: (query) => search(query, emit));
+      event.when(
+        initialize: () => initialize(emit),
+        search: (query) => search(query, emit),
+      );
+
+  /// Handler for initialization events
+  Future<void> initialize(Emitter<SearchState> emit) async {
+    await search('', emit);
+  }
 
   /// Handler for search events
   Future<void> search(String query, Emitter<SearchState> emit) async {
@@ -40,6 +49,12 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       emit(
         SearchState.failure(
           e.message,
+        ),
+      );
+    } on Exception catch (e) {
+      emit(
+        SearchState.failure(
+          e.toString(),
         ),
       );
     }

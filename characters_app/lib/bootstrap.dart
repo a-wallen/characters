@@ -4,7 +4,9 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 
+/// The bloc observer for the app for debugging purposes
 class AppBlocObserver extends BlocObserver {
+  /// Constructs the App Bloc Observer
   const AppBlocObserver();
 
   @override
@@ -20,6 +22,7 @@ class AppBlocObserver extends BlocObserver {
   }
 }
 
+/// Registers the bloc observers for the app before running
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
